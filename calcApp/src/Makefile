@@ -9,22 +9,19 @@ include $(TOP)/configure/CONFIG
 # Build the IOC application
 
 PROD_IOC = calc
-# calc.dbd will be created and installed
+
 DBD += calc.dbd
 
-# calc.dbd will be made up from these files:
 calc_DBD += base.dbd
+calc_DBD += caPutLog.dbd
 calc_DBD += calcSupport.dbd
 calc_DBD += asSupport.dbd
 calc_DBD += asyn.dbd
 
-
-# Include dbd files from all support applications:
-#calc_DBD += xxx.dbd
-
 calc_LIBS += calc
 calc_LIBS += autosave
 calc_LIBS += asyn
+calc_LIBS += caPutLog
 
 # calc_registerRecordDeviceDriver.cpp derives from calc.dbd
 calc_SRCS += calc_registerRecordDeviceDriver.cpp
