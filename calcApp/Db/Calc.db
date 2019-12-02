@@ -1,0 +1,70 @@
+
+record(ai, "flow_rate_1"){
+    field(DESC, "") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(calc, "temp_delta_cell_1"){
+    field(CALC, "")
+    field(INPA, "")
+    field(INPB, "")
+    field(DESC, "") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(calc, "temp_delta_disc_1"){
+    field(CALC, "")
+    field(INPA, "")
+    field(INPB, "")
+    field(DESC, "") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(calc, "pwrdiss_cell_1"){
+    field(CALC, "1.16*A*B")
+    field(INPA, "temp_delta_cell_1")   # Disc or cell delta T
+    field(INPB, "flow_rate_1")
+    field(DESC, "") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+record(compress, "pwrdiss_cell_1_array"){
+    field(INP,  "pwrdiss_cell_1 CP")
+    field(NSAM, "3")
+    field(ALG,  "Circular Buffer")
+    field(DESC, " (array)") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(calc, "pwrdiss_disc_1"){
+    field(CALC, "1.16*A*B")
+    field(INPA, "temp_delta_disc_1")   # Disc or cell delta T
+    field(INPB, "flow_rate_1")
+    field(DESC, "") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+record(compress, "pwrdiss_disc_1_array"){
+    field(INP,  "pwrdiss_disc_1 CP")
+    field(NSAM, "3")
+    field(ALG,  "Circular Buffer")
+    field(DESC, " (array)") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
+
+record(calc, "pwr_cell_1"){
+    field(CALC, "(A/(1+E/C)+C+(B/(1+D/C)))")
+    field(INPA, "pwrdiss_disc_1.VAL[1]")   #  n
+    field(INPB, "pwrdiss_disc_1.VAL[0]")   #  n+1
+    field(INPC, "pwrdiss_cell_1.VAL[1]")   #  n
+    field(INPD, "pwrdiss_cell_1.VAL[0]")   #  n+1
+    field(INPE, "pwrdiss_cell_1.VAL[2]")   #  n-1
+    field(DESC, "") 
+    field(PREC, "4")
+    field(EGU,  "")
+}
