@@ -1,0 +1,9 @@
+ASYN=/opt/epics-R3.15.6/modules/asyn4-35
+CALC=/opt/epics-R3.15.6/modules/synApps/calc-R3-7-1
+AUTOSAVE=/opt/epics-R3.15.6/modules/autosave-R5-9
+
+EPICS_BASE=/opt/epics-R3.15.6/base
+
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/configure/RELEASE.local
+
