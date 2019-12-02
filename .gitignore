@@ -1,0 +1,8 @@
+bin/
+calcApp/Db/O.linux-x86_64/
+calcApp/src/O.Common/
+calcApp/src/O.linux-x86_64/
+configure/O.linux-x86_64/
+dbd/
+iocBoot/ioccalc/envPaths
+
