@@ -91,24 +91,18 @@ record(ai, "${name}"){
 ''')
 flow_rate_tmpl = Template('''
 record(ai, "${name}"){
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "L/h")
 }
 ''')
 
 temp_delta_tmpl = Template('''
-#record(ai, "${name}_buffer"){
-#    field(INP, "${temp} MSS")
-#    field(SCAN, "Passive")
-#    field(PREC, "${prec}")
-#}
 record(calc, "${name}"){
     field(CALC, "B-A")
     field(INPA, "${temp_inp} MSS CP")
     field(INPB, "${temp} MSS")
-    field(INPC, "${trigger} CP")
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "C")
 }
@@ -119,7 +113,7 @@ record(calc, "${name}"){
     field(CALC, "1.16*A*B")
     field(INPA, "${t_delta} CP")   # Disc or cell delta T
     field(INPB, "${flow_rate} CP")
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "kW")
 }
@@ -130,7 +124,7 @@ record(calc,  "${name}"){
     field(CALC, "SQR(A/(B/7))")
     field(INPA, "${prw_cell_n}")
     field(INPB, "${prw_cell_total}")
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "${egu}")
 }
@@ -146,13 +140,13 @@ record(calc, "${name}"){
     field(INPE, "${pwr_cell_6} CP")
     field(INPF, "${pwr_cell_7} CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${desc}")
 }
 record(calc, "${name_dbm}"){
     field(CALC, "10*LOG(A*10^6)")
     field(INPA, "${name} CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${desc}")
 }
 ''')
 
@@ -162,7 +156,7 @@ record(calc, "${name}"){
     field(INPA, "${pwr_cell} CP")
     field(INPB, "${pwr_total} CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${desc}")
 }
 ''')
 cell_1_water_power = Template('''
@@ -173,7 +167,7 @@ record(calc, "${name}"){
     field(INPC, "${pwr_diss_disc2} CP")
     field(INPD, "${pwr_diss_cell2} CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${desc}")
 }
 ''')
 cell_n_water_power = Template('''
@@ -181,12 +175,12 @@ record(calc, "${name}"){
     field(CALC, "A/(1+(D/C))+C+B/(1+(E/D))")
     field(INPA, "${pwr_diss_discN} CP")
     field(INPB, "${pwr_diss_discNp1} CP")
-    
+
     field(INPC, "${pwr_diss_cellN} CP")
     field(INPD, "${pwr_diss_cellNm1} CP")
     field(INPE, "${pwr_diss_cellNp1} CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${desc}")
 }
 ''')
 cell_7_water_power = Template('''
@@ -194,12 +188,12 @@ record(calc, "${name}"){
     field(CALC, "(B/(1+D/C))+B+A")
     field(INPA, "${pwr_diss_disc8} CP")
     field(INPB, "${pwr_diss_disc7} CP")
-    
+
     field(INPC, "${pwr_diss_cell7} CP")
     field(INPD, "${pwr_diss_cell6} CP")
-    
+
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${desc}")
 }
 ''')
 
