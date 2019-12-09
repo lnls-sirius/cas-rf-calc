@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import csv
 
 from string import Template
 
@@ -52,16 +51,16 @@ flow_rates = ['SI-02SB:RF-P7Cav:Disc1FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Cell7FlwRt-Mon']
 
 power_diss_array = ['SI-02SB:RF-P7Cav:PwrDissDisc1-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDisc2-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDisc3-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDisc4-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDisc5-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDIsc6-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDIsc7-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissDisc8-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissCell1-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissCell2-Mon',
-               'SI-02SB:RF-P7Cav:PwrDissCell3-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc2-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc3-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc4-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc5-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDIsc6-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDIsc7-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc8-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissCell1-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissCell2-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissCell3-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissCell4-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissCell5-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissCell6-Mon',
@@ -89,9 +88,10 @@ record(ai, "${name}"){
     field(PREC, "${prec}")
 }
 ''')
+
 flow_rate_tmpl = Template('''
 record(ai, "${name}"){
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "L/h")
 }
@@ -102,7 +102,6 @@ record(calc, "${name}"){
     field(CALC, "B-A")
     field(INPA, "${temp_inp} MSS CP")
     field(INPB, "${temp} MSS")
-    field(INPC, "${trigger} MSS CP")
     field(DESC, "${desc}") 
     field(PREC, "${prec}")
     field(EGU,  "C")
@@ -114,7 +113,7 @@ record(calc, "${name}"){
     field(CALC, "1.16*A*B")
     field(INPA, "${t_delta} CP")   # Disc or cell delta T
     field(INPB, "${flow_rate} CP")
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "kW")
 }
@@ -130,13 +129,13 @@ record(calc, "${name}"){
     field(INPE, "${pwr_cell_6} MSS CP")
     field(INPF, "${pwr_cell_7} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${egu}")
 }
 record(calc, "${name_dbm}"){
     field(CALC, "10*LOG(A*10^6)")
     field(INPA, "${name} CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${egu}")
 }
 ''')
 
@@ -146,9 +145,10 @@ record(calc, "${name}"){
     field(INPA, "${pwr_cell} MSS CP")
     field(INPB, "${pwr_total} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${egu}")
 }
 ''')
+
 cell_1_water_power = Template('''
 record(calc, "${name}"){
     field(CALC, "A+B+C/(1+D/B)")
@@ -157,20 +157,20 @@ record(calc, "${name}"){
     field(INPC, "${pwr_diss_disc2} MSS CP")
     field(INPD, "${pwr_diss_cell2} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${egu}")
 }
 ''')
+
 cell_n_water_power = Template('''
 record(calc, "${name}"){
     field(CALC, "A/(1+(D/C))+C+B/(1+(E/D))")
     field(INPA, "${pwr_diss_discN} MSS CP")
     field(INPB, "${pwr_diss_discNp1} MSS CP")
-    
     field(INPC, "${pwr_diss_cellN} MSS CP")
     field(INPD, "${pwr_diss_cellNm1} MSS CP")
     field(INPE, "${pwr_diss_cellNp1} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${egu}")
 }
 ''')
 cell_7_water_power = Template('''
@@ -181,9 +181,8 @@ record(calc, "${name}"){
     
     field(INPC, "${pwr_diss_cell7} MSS CP")
     field(INPD, "${pwr_diss_cell6} MSS CP")
-    
     field(PREC, "${prec}")
-    field(EGU, "${desc}")    
+    field(EGU, "${egu}")
 }
 ''')
 
@@ -199,33 +198,33 @@ if __name__ == '__main__':
         print(temp, d_temp, flow_rate, power_diss)
         db += flow_rate_tmpl.safe_substitute(defaults, name=flow_rate)
         db += temp_delta_tmpl.safe_substitute(defaults, name=d_temp, temp=temp, temp_inp=water_inp_temp)
-        db += pwrdiss_n_tmpl.safe_substitute(defaults, name=power_diss, flow_rate=flow_rate, t_delta=d_temp)
+        db += pwrdiss_n_tmpl.safe_substitute(defaults, egu='kW', name=power_diss, flow_rate=flow_rate, t_delta=d_temp)
 
     for i in range(0, 7):
-        name = "SI-02SB:RF-P7Cav:PwrWtCell{}-Mon".format(i+1)
+        name = "SI-02SB:RF-P7Cav:PwrWtCell{}-Mon".format(i + 1)
         if i == 0:
             db += cell_1_water_power.safe_substitute(defaults, egu='kW',
                                                      name=name,
                                                      pwr_diss_disc1=power_diss_array[i],
                                                      pwr_diss_disc2=power_diss_array[i],
                                                      pwr_diss_cell1=power_diss_array[i + 8],
-                                                     pwr_diss_cell2=power_diss_array[i+1 + 8])
+                                                     pwr_diss_cell2=power_diss_array[i + 1 + 8])
 
         elif i == 6:
             db += cell_7_water_power.safe_substitute(defaults, egu='kW',
                                                      name=name,
                                                      pwr_diss_disc7=power_diss_array[i],
-                                                     pwr_diss_disc8=power_diss_array[i+1],
-                                                     pwr_diss_cell6=power_diss_array[i-1 + 8],
+                                                     pwr_diss_disc8=power_diss_array[i + 1],
+                                                     pwr_diss_cell6=power_diss_array[i - 1 + 8],
                                                      pwr_diss_cell7=power_diss_array[i + 8])
         else:
             db += cell_n_water_power.safe_substitute(defaults, egu='kW',
                                                      name=name,
                                                      pwr_diss_discN=power_diss_array[i],
-                                                     pwr_diss_discNp1=power_diss_array[i+1],
+                                                     pwr_diss_discNp1=power_diss_array[i + 1],
                                                      pwr_diss_cellN=power_diss_array[i + 8],
-                                                     pwr_diss_cellNp1=power_diss_array[i+1 + 8],
-                                                     pwr_diss_cellNm1=power_diss_array[i-1 + 8])
+                                                     pwr_diss_cellNp1=power_diss_array[i + 1 + 8],
+                                                     pwr_diss_cellNm1=power_diss_array[i - 1 + 8])
 
     db += total_water_power.safe_substitute(defaults, egu='kW',
                                             name=water_cell_total_power,
