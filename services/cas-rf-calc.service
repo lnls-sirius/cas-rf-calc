@@ -7,8 +7,6 @@ After=network-online.target
 Restart=always
 RestartSec=10
 Type=simple
-User=iocuser
-Group=ioc
 
 WorkingDirectory=/opt/cas-rf-calc/iocBoot/ioccalc
 ExecStart=/usr/local/bin/procServ -L - --allow -f \

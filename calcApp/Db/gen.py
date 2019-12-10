@@ -23,24 +23,24 @@ d_temps = ['SI-02SB:RF-P7Cav:Disc1WdT-Mon',
            'SI-02SB:RF-P7Cav:Disc3WdT-Mon',
            'SI-02SB:RF-P7Cav:Disc4WdT-Mon',
            'SI-02SB:RF-P7Cav:Disc5WdT-Mon',
-           'SI-02SB:RF-P7Cav:DIsc6WdT-Mon',
-           'SI-02SB:RF-P7Cav:DIsc7WdT-Mon',
+           'SI-02SB:RF-P7Cav:Disc6WdT-Mon',
+           'SI-02SB:RF-P7Cav:Disc7WdT-Mon',
            'SI-02SB:RF-P7Cav:Disc8WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell1WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell2WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell3WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell4WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell5WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell6WdT-Mon',
-           'SI-02SB:RF-P7Cav:Cell7WdT-Mon']
+           'SI-02SB:RF-P7Cav:Cylin1WdT-Mon',
+           'SI-02SB:RF-P7Cav:Cylin2WdT-Mon',
+           'SI-02SB:RF-P7Cav:Cylin3WdT-Mon',
+           'SI-02SB:RF-P7Cav:Cylin4WdT-Mon',
+           'SI-02SB:RF-P7Cav:Cylin5WdT-Mon',
+           'SI-02SB:RF-P7Cav:Cylin6WdT-Mon',
+           'SI-02SB:RF-P7Cav:Cylin7WdT-Mon']
 
 flow_rates = ['SI-02SB:RF-P7Cav:Disc1FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Disc2FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Disc3FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Disc4FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Disc5FlwRt-Mon',
-              'SI-02SB:RF-P7Cav:DIsc6FlwRt-Mon',
-              'SI-02SB:RF-P7Cav:DIsc7FlwRt-Mon',
+              'SI-02SB:RF-P7Cav:Disc6FlwRt-Mon',
+              'SI-02SB:RF-P7Cav:Disc7FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Disc8FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Cell1FlwRt-Mon',
               'SI-02SB:RF-P7Cav:Cell2FlwRt-Mon',
@@ -55,8 +55,8 @@ power_diss_array = ['SI-02SB:RF-P7Cav:PwrDissDisc1-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissDisc3-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissDisc4-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissDisc5-Mon',
-                    'SI-02SB:RF-P7Cav:PwrDissDIsc6-Mon',
-                    'SI-02SB:RF-P7Cav:PwrDissDIsc7-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc6-Mon',
+                    'SI-02SB:RF-P7Cav:PwrDissDisc7-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissDisc8-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissCell1-Mon',
                     'SI-02SB:RF-P7Cav:PwrDissCell2-Mon',
@@ -102,7 +102,7 @@ record(calc, "${name}"){
     field(CALC, "B-A")
     field(INPA, "${temp_inp} MSS CP")
     field(INPB, "${temp} MSS")
-    field(DESC, "${desc}") 
+    field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "C")
 }
@@ -110,7 +110,7 @@ record(calc, "${name}"){
 
 pwrdiss_n_tmpl = Template('''
 record(calc, "${name}"){
-    field(CALC, "1.16*A*B")
+    field(CALC, "1.16*A*B/1000")
     field(INPA, "${t_delta} CP")   # Disc or cell delta T
     field(INPB, "${flow_rate} CP")
     field(DESC, "${desc}")
@@ -141,7 +141,7 @@ record(calc, "${name_dbm}"){
 
 cell_voltage_relation_tmpl = Template('''
 record(calc, "${name}"){
-    field(CALC, "(A/(B/7))^(1/2)")
+    field(CALC, "100*(A/(B/7))^(1/2)")
     field(INPA, "${pwr_cell} MSS CP")
     field(INPB, "${pwr_total} MSS CP")
     field(PREC, "${prec}")
@@ -178,7 +178,7 @@ record(calc, "${name}"){
     field(CALC, "(B/(1+D/C))+B+A")
     field(INPA, "${pwr_diss_disc8} MSS CP")
     field(INPB, "${pwr_diss_disc7} MSS CP")
-    
+
     field(INPC, "${pwr_diss_cell7} MSS CP")
     field(INPD, "${pwr_diss_cell6} MSS CP")
     field(PREC, "${prec}")
@@ -239,7 +239,7 @@ if __name__ == '__main__':
 
     for pwr_cell, cell_voltage in zip(pwr_cell_water, cell_voltage_relation):
         print(pwr_cell, cell_voltage)
-        db += cell_voltage_relation_tmpl.safe_substitute(defaults, name=cell_voltage,
+        db += cell_voltage_relation_tmpl.safe_substitute(defaults, name=cell_voltage, egu='%',
                                                          pwr_cell=pwr_cell, pwr_total=water_cell_total_power)
 
     with open('Calc.db', 'w+') as _f:
