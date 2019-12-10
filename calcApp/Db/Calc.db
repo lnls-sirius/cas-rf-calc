@@ -8,7 +8,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc1FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc1WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin1WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc1WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -32,7 +32,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc2FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc2WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin2WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc2WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -56,7 +56,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc3FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc3WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin3WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc3WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -80,7 +80,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc4FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc4WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin4WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc4WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -104,7 +104,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc5FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc5WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin5WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc5WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -128,7 +128,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc6FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc6WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin6WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc6WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -152,7 +152,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc7FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc7WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Cylin7WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc7WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -176,7 +176,7 @@ record(ai, "SI-02SB:RF-P7Cav:Disc8FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Disc8WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc1WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Disc8WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -200,7 +200,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell1FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin1WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc2WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin1WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -224,7 +224,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell2FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin2WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc3WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin2WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -248,7 +248,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell3FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin3WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc4WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin3WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -272,7 +272,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell4FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin4WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc5WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin4WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -296,7 +296,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell5FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin5WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc6WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin5WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -320,7 +320,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell6FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin6WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc7WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin6WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -344,7 +344,7 @@ record(ai, "SI-02SB:RF-P7Cav:Cell7FlwRt-Mon"){
 record(calc, "SI-02SB:RF-P7Cav:Cylin7WdT-Mon"){
     field(CALC, "B-A")
     field(INPA, "SI-02SB:RF-P7Cav:WInT-Mon MSS CP")
-    field(INPB, "SI-02SB:RF-P7Cav:Disc8WT-Mon MSS")
+    field(INPB, "SI-02SB:RF-P7Cav:Cylin7WT-Mon MSS")
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
@@ -436,13 +436,14 @@ record(calc, "SI-02SB:RF-P7Cav:PwrWtCell7-Mon"){
 }
 
 record(calc, "SI-02SB:RF-P7Cav:PwrWtTotal-Mon"){
-    field(CALC, "A+B+C+D+E+F")
+    field(CALC, "A+B+C+D+E+F+G")
     field(INPA, "SI-02SB:RF-P7Cav:PwrWtCell1-Mon MSS CP")
     field(INPB, "SI-02SB:RF-P7Cav:PwrWtCell2-Mon MSS CP")
     field(INPC, "SI-02SB:RF-P7Cav:PwrWtCell3-Mon MSS CP")
-    field(INPD, "SI-02SB:RF-P7Cav:PwrWtCell5-Mon MSS CP")
-    field(INPE, "SI-02SB:RF-P7Cav:PwrWtCell6-Mon MSS CP")
-    field(INPF, "SI-02SB:RF-P7Cav:PwrWtCell7-Mon MSS CP")
+    field(INPD, "SI-02SB:RF-P7Cav:PwrWtCell4-Mon MSS CP")
+    field(INPE, "SI-02SB:RF-P7Cav:PwrWtCell5-Mon MSS CP")
+    field(INPF, "SI-02SB:RF-P7Cav:PwrWtCell6-Mon MSS CP")
+    field(INPG, "SI-02SB:RF-P7Cav:PwrWtCell7-Mon MSS CP")
     field(PREC, "4")
     field(EGU, "kW")
 }

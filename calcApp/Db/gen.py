@@ -2,21 +2,21 @@
 
 from string import Template
 
-temps = ['SI-02SB:RF-P7Cav:Cylin1WT-Mon',
-         'SI-02SB:RF-P7Cav:Cylin2WT-Mon',
-         'SI-02SB:RF-P7Cav:Cylin3WT-Mon',
-         'SI-02SB:RF-P7Cav:Cylin4WT-Mon',
-         'SI-02SB:RF-P7Cav:Cylin5WT-Mon',
-         'SI-02SB:RF-P7Cav:Cylin6WT-Mon',
-         'SI-02SB:RF-P7Cav:Cylin7WT-Mon',
-         'SI-02SB:RF-P7Cav:Disc1WT-Mon',
+temps = ['SI-02SB:RF-P7Cav:Disc1WT-Mon',
          'SI-02SB:RF-P7Cav:Disc2WT-Mon',
          'SI-02SB:RF-P7Cav:Disc3WT-Mon',
          'SI-02SB:RF-P7Cav:Disc4WT-Mon',
          'SI-02SB:RF-P7Cav:Disc5WT-Mon',
          'SI-02SB:RF-P7Cav:Disc6WT-Mon',
          'SI-02SB:RF-P7Cav:Disc7WT-Mon',
-         'SI-02SB:RF-P7Cav:Disc8WT-Mon', ]
+         'SI-02SB:RF-P7Cav:Disc8WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin1WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin2WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin3WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin4WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin5WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin6WT-Mon',
+         'SI-02SB:RF-P7Cav:Cylin7WT-Mon']
 
 d_temps = ['SI-02SB:RF-P7Cav:Disc1WdT-Mon',
            'SI-02SB:RF-P7Cav:Disc2WdT-Mon',
@@ -121,13 +121,14 @@ record(calc, "${name}"){
 
 total_water_power = Template('''
 record(calc, "${name}"){
-    field(CALC, "A+B+C+D+E+F")
+    field(CALC, "A+B+C+D+E+F+G")
     field(INPA, "${pwr_cell_1} MSS CP")
     field(INPB, "${pwr_cell_2} MSS CP")
     field(INPC, "${pwr_cell_3} MSS CP")
-    field(INPD, "${pwr_cell_5} MSS CP")
-    field(INPE, "${pwr_cell_6} MSS CP")
-    field(INPF, "${pwr_cell_7} MSS CP")
+    field(INPD, "${pwr_cell_4} MSS CP")
+    field(INPE, "${pwr_cell_5} MSS CP")
+    field(INPF, "${pwr_cell_6} MSS CP")
+    field(INPG, "${pwr_cell_7} MSS CP")
     field(PREC, "${prec}")
     field(EGU, "${egu}")
 }
