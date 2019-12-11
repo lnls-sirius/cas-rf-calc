@@ -152,7 +152,7 @@ record(calc, "${name}"){
 
 cell_1_water_power = Template('''
 record(calc, "${name}"){
-    field(CALC, "A+B+C/(1+D/B)")
+    field(CALC, "A+B+(C/(1+D/B))")
     field(INPA, "${pwr_diss_disc1} MSS CP")
     field(INPB, "${pwr_diss_cell1} MSS CP")
     field(INPC, "${pwr_diss_disc2} MSS CP")
@@ -164,7 +164,7 @@ record(calc, "${name}"){
 
 cell_n_water_power = Template('''
 record(calc, "${name}"){
-    field(CALC, "A/(1+(D/C))+C+B/(1+(E/D))")
+    field(CALC, "A/(1+(D/C))+C+B/(1+(E/C))")
     field(INPA, "${pwr_diss_discN} MSS CP")
     field(INPB, "${pwr_diss_discNp1} MSS CP")
     field(INPC, "${pwr_diss_cellN} MSS CP")
@@ -176,7 +176,7 @@ record(calc, "${name}"){
 ''')
 cell_7_water_power = Template('''
 record(calc, "${name}"){
-    field(CALC, "(B/(1+D/C))+B+A")
+    field(CALC, "C + A + (B/(1+D/C))")
     field(INPA, "${pwr_diss_disc8} MSS CP")
     field(INPB, "${pwr_diss_disc7} MSS CP")
 
@@ -207,7 +207,7 @@ if __name__ == '__main__':
             db += cell_1_water_power.safe_substitute(defaults, egu='kW',
                                                      name=name,
                                                      pwr_diss_disc1=power_diss_array[i],
-                                                     pwr_diss_disc2=power_diss_array[i],
+                                                     pwr_diss_disc2=power_diss_array[i + 1],
                                                      pwr_diss_cell1=power_diss_array[i + 8],
                                                      pwr_diss_cell2=power_diss_array[i + 1 + 8])
 
