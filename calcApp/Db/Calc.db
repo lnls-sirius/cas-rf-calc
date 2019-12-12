@@ -12,7 +12,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc1WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -46,7 +46,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc2WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -80,7 +80,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc3WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -114,7 +114,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc4WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -148,7 +148,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc5WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -182,7 +182,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc6WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -216,7 +216,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc7WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -250,7 +250,7 @@ record(calc, "SI-02SB:RF-P7Cav:Disc8WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -284,7 +284,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin1WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -318,7 +318,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin2WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -352,7 +352,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin3WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -386,7 +386,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin4WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -420,7 +420,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin5WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -454,7 +454,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin6WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 
@@ -488,7 +488,7 @@ record(calc, "SI-02SB:RF-P7Cav:Cylin7WdT-Mon"){
     field(DESC, "")
     field(PREC, "4")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 

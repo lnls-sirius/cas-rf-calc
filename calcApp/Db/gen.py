@@ -105,7 +105,7 @@ record(calc, "${name}"){
     field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 ''')
