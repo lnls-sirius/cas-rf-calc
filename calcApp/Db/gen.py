@@ -105,10 +105,17 @@ record(calc, "${name}"){
     field(DESC, "${desc}") 
     field(PREC, "${prec}")
     field(EGU,  "C")
+    field(LOLO, "0.2")
+    field(LLSV, "INVALID")
 }
 ''')
 
 pwrdiss_n_tmpl = Template('''
+record(calc, "${name}_enbl"){
+   field(CALC, "A#0")
+   field(INPA, "${t_delta}.STAT CP")
+   field(INPB, "${t_delta} CP")
+}
 record(calc, "${name}"){
     field(CALC, "1.16*A*B")
     field(INPA, "${t_delta} CP")   # Disc or cell delta T
@@ -116,6 +123,9 @@ record(calc, "${name}"){
     field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "kW")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "${name}_enbl")
 }
 ''')
 
