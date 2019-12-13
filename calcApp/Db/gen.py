@@ -105,27 +105,19 @@ record(calc, "${name}"){
     field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "C")
-    field(LOLO, "0.2")
+    field(LOLO, "0.3")
     field(LLSV, "INVALID")
 }
 ''')
 
 pwrdiss_n_tmpl = Template('''
-record(calc, "${name}_enbl"){
-   field(CALC, "A#0")
-   field(INPA, "${t_delta}.STAT CP")
-   field(INPB, "${t_delta} CP")
-}
 record(calc, "${name}"){
     field(CALC, "1.16*A*B/1000")
-    field(INPA, "${t_delta} CP")   # Disc or cell delta T
-    field(INPB, "${flow_rate} CP")
+    field(INPA, "${t_delta} MSS CP")   # Disc or cell delta T
+    field(INPB, "${flow_rate} MSS CP")
     field(DESC, "${desc}")
     field(PREC, "${prec}")
     field(EGU,  "kW")
-    field(DISV, "1")
-    field(DISS, "INVALID")
-    field(SDIS, "${name}_enbl")
 }
 ''')
 
@@ -140,13 +132,13 @@ record(calc, "${name}"){
     field(INPF, "${pwr_cell_6} MSS CP")
     field(INPG, "${pwr_cell_7} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${egu}")
+    field(EGU,  "${egu}")
 }
 record(calc, "${name_dbm}"){
     field(CALC, "10*LOG(A*10^6)")
-    field(INPA, "${name} CP")
+    field(INPA, "${name} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${egu}")
+    field(EGU,  "${egu}")
 }
 ''')
 
@@ -156,11 +148,22 @@ record(calc, "${name}"){
     field(INPA, "${pwr_cell} MSS CP")
     field(INPB, "${pwr_total} MSS CP")
     field(PREC, "${prec}")
-    field(EGU, "${egu}")
+    field(EGU,  "${egu}")
 }
 ''')
 
 cell_1_water_power = Template('''
+record(calc, "${name}_enbl"){
+    field(CALC, "A#0||B#0||C#0||D#0")
+    field(INPA, "${pwr_diss_disc1}.STAT MSS CP")
+    field(INPB, "${pwr_diss_cell1}.STAT MSS CP")
+    field(INPC, "${pwr_diss_disc2}.STAT MSS CP")
+    field(INPD, "${pwr_diss_cell2}.STAT MSS CP")
+    field(INPE, "${pwr_diss_disc1} MSS CP")
+    field(INPF, "${pwr_diss_cell1} MSS CP")
+    field(INPG, "${pwr_diss_disc2} MSS CP")
+    field(INPH, "${pwr_diss_cell2} MSS CP")
+}
 record(calc, "${name}"){
     field(CALC, "A+B+(C/(1+D/B))")
     field(INPA, "${pwr_diss_disc1} MSS CP")
@@ -169,31 +172,63 @@ record(calc, "${name}"){
     field(INPD, "${pwr_diss_cell2} MSS CP")
     field(PREC, "${prec}")
     field(EGU, "${egu}")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "${name}_enbl")
 }
 ''')
 
 cell_n_water_power = Template('''
+record(calc, "${name}_enbl"){
+    field(CALC, "A#0||B#0||C#0||D#0||E#0")
+    field(INPA, "${pwr_diss_discN}.STAT   MSS CP")
+    field(INPB, "${pwr_diss_discNp1}.STAT MSS CP")
+    field(INPC, "${pwr_diss_cellN}.STAT   MSS CP")
+    field(INPD, "${pwr_diss_cellNm1}.STAT MSS CP")
+    field(INPE, "${pwr_diss_cellNp1}.STAT MSS CP")
+    field(INPF, "${pwr_diss_discN}   MSS CP")
+    field(INPG, "${pwr_diss_discNp1} MSS CP")
+    field(INPH, "${pwr_diss_cellN}   MSS CP")
+    field(INPI, "${pwr_diss_cellNm1} MSS CP")
+    field(INPJ, "${pwr_diss_cellNp1} MSS CP")
+}
 record(calc, "${name}"){
     field(CALC, "A/(1+(D/C))+C+B/(1+(E/C))")
-    field(INPA, "${pwr_diss_discN} MSS CP")
+    field(INPA, "${pwr_diss_discN}   MSS CP")
     field(INPB, "${pwr_diss_discNp1} MSS CP")
-    field(INPC, "${pwr_diss_cellN} MSS CP")
+    field(INPC, "${pwr_diss_cellN}   MSS CP")
     field(INPD, "${pwr_diss_cellNm1} MSS CP")
     field(INPE, "${pwr_diss_cellNp1} MSS CP")
     field(PREC, "${prec}")
     field(EGU, "${egu}")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "${name}_enbl")
 }
 ''')
 cell_7_water_power = Template('''
+record(calc, "${name}_enbl"){
+    field(CALC, "A#0||B#0||C#0||D#0")
+    field(INPA, "${pwr_diss_disc8}.STAT MSS CP")
+    field(INPB, "${pwr_diss_disc7}.STAT MSS CP")
+    field(INPC, "${pwr_diss_cell7}.STAT MSS CP")
+    field(INPD, "${pwr_diss_cell6}.STAT MSS CP")
+    field(INPE, "${pwr_diss_disc8} MSS CP")
+    field(INPF, "${pwr_diss_disc7} MSS CP")
+    field(INPG, "${pwr_diss_cell7} MSS CP")
+    field(INPH, "${pwr_diss_cell6} MSS CP")
+}
 record(calc, "${name}"){
     field(CALC, "C + A + (B/(1+D/C))")
     field(INPA, "${pwr_diss_disc8} MSS CP")
     field(INPB, "${pwr_diss_disc7} MSS CP")
-
     field(INPC, "${pwr_diss_cell7} MSS CP")
     field(INPD, "${pwr_diss_cell6} MSS CP")
     field(PREC, "${prec}")
     field(EGU, "${egu}")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "${name}_enbl")
 }
 ''')
 
