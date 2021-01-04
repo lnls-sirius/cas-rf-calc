@@ -4,6 +4,7 @@
 ## everywhere it appears in this file
 
 < envPaths
+< logEnv
 
 cd "${TOP}"
 
@@ -25,6 +26,6 @@ set_pass1_restoreFile("${TOP}/autosave/Calc.sav")
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
 
-caPutLogInit "10.128.255.4:7011" 2
+caPutLogInit "$(EPICS_IOC_CAPUTLOG_INET):$(EPICS_IOC_CAPUTLOG_PORT)" 2
 
 create_monitor_set("${TOP}/autosave/Calc.req", 10)
