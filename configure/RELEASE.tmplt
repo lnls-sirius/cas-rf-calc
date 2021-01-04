@@ -1,0 +1,10 @@
+ASYN=${ASYN}
+CALC=${CALC}
+AUTOSAVE=${AUTOSAVE}
+CAPUTLOG=${CAPUTLOG}
+
+EPICS_BASE=${EPICS_BASE}
+
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/configure/RELEASE.local
+

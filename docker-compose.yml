@@ -1,0 +1,5 @@
+version: "3.7"
+services:
+  ioc:
+    build: "."
+    image: "lnlscon/rf-calc:v1.0"
